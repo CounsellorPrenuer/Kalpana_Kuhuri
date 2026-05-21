@@ -1,9 +1,10 @@
 ﻿:root {
-  --bg: #e8eff3;
-  --card: #f7f8fb;
-  --ink: #082b5b;
-  --primary: #4258d9;
-  --line: #c7d8ea;
+  --bg: #ffffff;
+  --card: #ffffff;
+  --ink: #073a33;
+  --primary: #0aa89e; /* teal */
+  --accent: #ff7a3d;  /* orange */
+  --line: #d9efe9;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -17,7 +18,7 @@ body {
 main { max-width: 1800px; margin: 0 auto; padding: 8px 10px 40px; }
 .topbar {
   position: sticky; top: 0; z-index: 10;
-  background: #edf3f6;
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 12px 16px;
@@ -25,7 +26,7 @@ main { max-width: 1800px; margin: 0 auto; padding: 8px 10px 40px; }
 }
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand h1 { margin: 0; font-size: 1.35rem; }
-.brand p { margin: 0; color: #234980; }
+.brand p { margin: 0; color: var(--primary); }
 nav { display: flex; flex-wrap: wrap; gap: 8px; }
 nav a {
   text-decoration: none;
@@ -34,7 +35,7 @@ nav a {
   border-radius: 999px;
   border: 1px solid var(--line);
   font-size: 0.9rem;
-  background: #f7fafc;
+  background: var(--card);
 }
 .hero { padding: 44px 6px 28px; }
 .hero h2 { font-size: 2.2rem; margin: 0 0 8px; }
@@ -57,7 +58,7 @@ nav a {
 .tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
 .tabs button {
   padding: 14px 10px;
-  background: #f7f8fb;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 16px;
   color: #000;
@@ -73,7 +74,7 @@ nav a {
   border: 1px solid var(--line);
   padding: 24px;
 }
-.plan span { font-size: 2rem; color: #3f59d9; text-transform: uppercase; }
+.plan span { font-size: 2rem; color: var(--primary); text-transform: uppercase; }
 .plan h4 { font-size: 28px; margin: 8px 0 4px; line-height: 1.1; }
 .plan h5 { font-size: 28px; color: var(--primary); margin: 0 0 10px; line-height: 1.1; }
 .plan ul { padding-left: 30px; margin: 0; }
@@ -83,7 +84,7 @@ nav a {
   margin-top: 14px;
   border: none;
   border-radius: 999px;
-  background: var(--primary);
+  background: var(--accent);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -102,7 +103,7 @@ nav a {
 .icon-svg { width: 180px; height: 180px; display: block; }
 .icon-linkedin {
   width: 180px; height: 180px; border-radius: 20px;
-  background: #1479b8; color: #fff; font-weight: 700;
+  background: var(--primary); color: #fff; font-weight: 700;
   font-size: 5.4rem; display: flex; align-items: center; justify-content: center;
   font-family: Arial, sans-serif;
 }
@@ -117,7 +118,7 @@ nav a {
   margin-top: 12px;
   font-style: normal;
   font-weight: 700;
-  color: #123f78;
+  color: var(--primary);
   font-size: 1.2rem;
 }
 .gallery-wrap { position: relative; }
@@ -138,7 +139,7 @@ nav a {
 }
 .gallery-side.prev { left: -14px; }
 .gallery-side.next { right: -14px; }
-.gallery-side:hover { background: #f0f5ff; }
+.gallery-side:hover { background: var(--card); }
 .gallery-side:active { transform: translateY(-50%) scale(0.98); }
 .gallery-side:focus-visible {
   outline: 2px solid var(--primary);
@@ -164,7 +165,7 @@ nav a {
 .contact p { font-size: 1rem; margin: 0 0 10px; }
 .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: start; }
 .contact-card {
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 18px;
