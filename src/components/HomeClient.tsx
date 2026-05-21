@@ -1,10 +1,7 @@
 ﻿'use client'
 
-import groq from 'groq'
-import {useEffect, useMemo, useState} from 'react'
-import {client, urlFor} from '@/lib/sanity'
-
-const query = groq`*[_type == "siteContent" && _id == "site-content"][0]`
+import {useMemo, useState} from 'react'
+import {urlFor} from '@/lib/sanity'
 
 function PackageIcon({name}: {name: string}) {
   const n = name.toLowerCase()
@@ -17,29 +14,16 @@ function PackageIcon({name}: {name: string}) {
     )
   }
   if (n.includes('linkedin')) return <div className="icon-linkedin">in</div>
-  if (n.includes('job')) {
-    return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="briefcase"><rect x="12" y="36" width="96" height="62" rx="8" fill="#45769c" /><path d="M38 36v-10c0-8 6-14 14-14h16c8 0 14 6 14 14v10h-10v-8c0-3-2-5-5-5H53c-3 0-5 2-5 5v8z" fill="#e68a45" /><rect x="54" y="64" width="12" height="16" rx="5" fill="#ffd95f" /></svg>
-  }
-  if (n.includes('report') && n.includes('counselling')) {
-    return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="checklist"><path d="M30 18h44l20 20v64a8 8 0 0 1-8 8H30a8 8 0 0 1-8-8V26a8 8 0 0 1 8-8z" fill="#efefef" /><path d="M74 18v18h20" fill="#dadada" /><rect x="34" y="44" width="10" height="10" fill="#fff" stroke="#4e5d75" /><rect x="34" y="62" width="10" height="10" fill="#fff" stroke="#4e5d75" /><rect x="34" y="80" width="10" height="10" fill="#fff" stroke="#4e5d75" /><path d="M36 49l3 3 6-7" stroke="#ef5d64" strokeWidth="2.5" fill="none" /><path d="M36 67l3 3 6-7" stroke="#ef5d64" strokeWidth="2.5" fill="none" /><rect x="52" y="46" width="30" height="3" rx="1.5" fill="#4e5d75" /><rect x="52" y="64" width="24" height="3" rx="1.5" fill="#4e5d75" /></svg>
-  }
-  if (n.includes('report')) {
-    return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="report"><rect x="22" y="18" width="76" height="94" rx="8" fill="#d4864c" /><rect x="30" y="26" width="60" height="78" rx="4" fill="#f4efe6" /><rect x="44" y="12" width="32" height="14" rx="3" fill="#f2d064" /><rect x="44" y="64" width="8" height="16" rx="2" fill="#d95b7b" /><rect x="57" y="56" width="8" height="24" rx="2" fill="#ea9f45" /><rect x="70" y="48" width="8" height="32" rx="2" fill="#6ab5e8" /></svg>
-  }
-  if (n.includes('cv')) {
-    return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="cv"><rect x="24" y="14" width="72" height="94" rx="8" fill="#6f87d7" /><circle cx="60" cy="35" r="12" fill="#f3f4f8" /><rect x="48" y="49" width="24" height="6" rx="3" fill="#ffd24d" /><rect x="36" y="62" width="48" height="4" rx="2" fill="#9db5ff" /><rect x="36" y="72" width="44" height="4" rx="2" fill="#9db5ff" /><rect x="36" y="82" width="50" height="4" rx="2" fill="#9db5ff" /></svg>
-  }
+  if (n.includes('job')) return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="briefcase"><rect x="12" y="36" width="96" height="62" rx="8" fill="#45769c" /><path d="M38 36v-10c0-8 6-14 14-14h16c8 0 14 6 14 14v10h-10v-8c0-3-2-5-5-5H53c-3 0-5 2-5 5v8z" fill="#e68a45" /><rect x="54" y="64" width="12" height="16" rx="5" fill="#ffd95f" /></svg>
+  if (n.includes('report') && n.includes('counselling')) return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="checklist"><path d="M30 18h44l20 20v64a8 8 0 0 1-8 8H30a8 8 0 0 1-8-8V26a8 8 0 0 1 8-8z" fill="#efefef" /><path d="M74 18v18h20" fill="#dadada" /><rect x="34" y="44" width="10" height="10" fill="#fff" stroke="#4e5d75" /><rect x="34" y="62" width="10" height="10" fill="#fff" stroke="#4e5d75" /><rect x="34" y="80" width="10" height="10" fill="#fff" stroke="#4e5d75" /><path d="M36 49l3 3 6-7" stroke="#ef5d64" strokeWidth="2.5" fill="none" /><path d="M36 67l3 3 6-7" stroke="#ef5d64" strokeWidth="2.5" fill="none" /><rect x="52" y="46" width="30" height="3" rx="1.5" fill="#4e5d75" /><rect x="52" y="64" width="24" height="3" rx="1.5" fill="#4e5d75" /></svg>
+  if (n.includes('report')) return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="report"><rect x="22" y="18" width="76" height="94" rx="8" fill="#d4864c" /><rect x="30" y="26" width="60" height="78" rx="4" fill="#f4efe6" /><rect x="44" y="12" width="32" height="14" rx="3" fill="#f2d064" /><rect x="44" y="64" width="8" height="16" rx="2" fill="#d95b7b" /><rect x="57" y="56" width="8" height="24" rx="2" fill="#ea9f45" /><rect x="70" y="48" width="8" height="32" rx="2" fill="#6ab5e8" /></svg>
+  if (n.includes('cv')) return <svg viewBox="0 0 120 120" className="icon-svg" aria-label="cv"><rect x="24" y="14" width="72" height="94" rx="8" fill="#6f87d7" /><circle cx="60" cy="35" r="12" fill="#f3f4f8" /><rect x="48" y="49" width="24" height="6" rx="3" fill="#ffd24d" /><rect x="36" y="62" width="48" height="4" rx="2" fill="#9db5ff" /><rect x="36" y="72" width="44" height="4" rx="2" fill="#9db5ff" /><rect x="36" y="82" width="50" height="4" rx="2" fill="#9db5ff" /></svg>
   return <div className="icon-linkedin">in</div>
 }
 
-export default function HomeClient() {
-  const [data, setData] = useState<any>(null)
+export default function HomeClient({data}: {data: any}) {
   const [activeAudienceIdx, setActiveAudienceIdx] = useState(0)
   const [galleryIdx, setGalleryIdx] = useState(0)
-
-  useEffect(() => {
-    client.fetch(query).then(setData).catch(() => setData(null))
-  }, [])
 
   const audiences = data?.packagesByAudience || []
   const activeAudience = audiences[activeAudienceIdx]
@@ -57,10 +41,8 @@ export default function HomeClient() {
     return clean ? `₹${clean}` : value
   }
 
-  if (!data) return <main><section className="hero"><h2>Loading...</h2></section></main>
-
   return (
-    <main>{/* content unchanged */}
+    <main>
       <header className="topbar"><div className="brand">{data?.logo && <img src={urlFor(data.logo).width(70).height(70).url()} alt="logo" />}<div><h1>{data?.brandName}</h1><p>{data?.tagline}</p></div></div><nav>{['Home', 'About Founder', 'Services', 'Packages', 'Testimonials', 'Photo Gallery', 'Contact Us'].map((n) => (<a key={n} href={`#${n.toLowerCase().replace(/\s+/g, '-')}`}>{n}</a>))}</nav></header>
       <section id="home" className="hero"><h2>Dare to Dream. Learn with Clarity.</h2><p>{data?.aboutBrand}</p></section>
       <section id="about-founder" className="section founder"><div><h3>About Founder</h3><h4>{data?.founderName}</h4><p>{data?.founderBio}</p></div>{data?.founderPhoto && <img src={urlFor(data.founderPhoto).width(480).url()} alt="Founder" />}</section>
